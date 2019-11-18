@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import { red } from 'ansi-colors';
 
 export default StyleSheet.create({
     container: {
@@ -45,12 +44,28 @@ export default StyleSheet.create({
         width: '90%',
     },
     clickBox: {
+        alignItems: 'center',
         flex: 1,
         margin: 5,
         borderRadius: 10,
         backgroundColor: '#01E478',
         height: 150,
         width: 150,
+        //resizeMode: 'center',
+    },
+    imgAction: {
+        flex: 1,
+        height: '80%',
+        width: '80%',
+        resizeMode: 'center',
+        margin: 10,
+    },
+    insideText: {
+        textTransform: 'uppercase',
+        marginTop: 10,
+        fontSize: 20,
+        color: 'white',
+        fontWeight: 'bold',
     },
     containerHome: {
         flex: 1,

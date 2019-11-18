@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import {View,Text,Image,TextInput, TouchableOpacity,ImageBackground, ScrollView} from 'react-native';
 import styles from '../AppStyles';
 
+class UserAction extends Component{
+  render(){
+    return(
+      <TouchableOpacity>
+        <View style={styles.clickBox}>
+          <Text style={styles.insideText}>{this.props.text}</Text>
+          <Image style={styles.imgAction} source={this.props.imgUri}/>
+        </View>
+      </TouchableOpacity>
+
+    );
+  }
+}
 export default class Login extends Component{
   render(){
     return(
@@ -18,33 +31,27 @@ export default class Login extends Component{
         </View>
 
         <View style={styles.clickArea}>
-          <TouchableOpacity>
-          <View style={styles.clickBox}></View>
-          </TouchableOpacity>
-          <TouchableOpacity>
-          <View style={styles.clickBox}></View>
-          </TouchableOpacity>
+          <UserAction text={"SAVINGS"} imgUri={require('../imgs/savings.png')}></UserAction>
+          <UserAction text={"SPENDING"} imgUri={require('../imgs/spending.png')}></UserAction>
         </View>
 
         <View style={styles.clickArea}>
-          <TouchableOpacity>
-          <View style={styles.clickBox}></View>
-          </TouchableOpacity>
-          <TouchableOpacity>
-          <View style={styles.clickBox}></View>
-          </TouchableOpacity>
+          <UserAction text={"TRANSFER"} imgUri={require('../imgs/transfer.png')}></UserAction>
+          <UserAction text={"PAY"} imgUri={require('../imgs/pay.png')}></UserAction>
         </View>
 
         <View style={styles.clickArea}>
-          <TouchableOpacity>
-          <View style={styles.clickBox}></View>
-          </TouchableOpacity>
-          <TouchableOpacity>
-          <View style={styles.clickBox}></View>
-          </TouchableOpacity>
+          <UserAction text={"BLOCK CARD"} imgUri={require('../imgs/blockcard.png')}></UserAction>
+          <UserAction text={"YIELD"} imgUri={require('../imgs/yield.png')}></UserAction>
+        </View>
+
+        <View style={styles.clickArea}>
+          <UserAction text={"OPTIONS"} imgUri={require('../imgs/options.png')}></UserAction>
+          <UserAction text={"HELP"} imgUri={require('../imgs/help.png')}></UserAction>
         </View>
 
         
+
       </View>
       
       <View style={styles.ftRegister}>
