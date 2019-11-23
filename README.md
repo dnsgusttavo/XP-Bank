@@ -1,9 +1,7 @@
 # XPBANK
-# Projeto de um aplicativo de banco feito com React Native
+Projeto de um aplicativo de banco feito com React Native
 
 # SCREENSHOTS
-
-
 <div>
 <img src=screenshots/ss1.jpg height="400" width="189">
 <img src=screenshots/ss2.jpg height="400" width="189">
