@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {View,Text,Image,TextInput, TouchableOpacity,ImageBackground, ScrollView} from 'react-native';
 import styles from '../AppStyles';
+import firebase from 'firebase';
 
 class UserAction extends Component{
   render(){
@@ -15,7 +16,45 @@ class UserAction extends Component{
     );
   }
 }
-export default class Login extends Component{
+export default class Home extends Component{
+
+  constructor(props){
+    super(props);
+    this.state = {
+      balance: 'Loading ...',
+      sign: '',
+      nome: 'asdasdasd'
+    }
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyB3n4ZzgBbG8cB5qOmBG4vjuXIJST28nAc",
+      authDomain: "xpbank-2019.firebaseapp.com",
+      databaseURL: "https://xpbank-2019.firebaseio.com",
+      projectId: "xpbank-2019",
+      storageBucket: "xpbank-2019.appspot.com",
+      messagingSenderId: "149084666438",
+      appId: "1:149084666438:web:362f355bd454b5924ce847",
+      measurementId: "G-SJ437D3DGF"
+
+      
+    };
+    if (!firebase.apps.length){ 
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    var userId = '1';
+
+    
+    firebase.database().ref("users/" + userId + "/balance").on('value', (snapshot) => {
+      this.state.sign = '$';
+      let state = this.state;
+      state.balance = snapshot.val();
+      this.setState(state);
+      
+    });
+
+  
+  }
   render(){
     return(
       <ImageBackground source={require('../imgs/bg.jpg')} imageStyle= {{opacity: 0.07}} style={styles.bg} resizeMode={"repeat"}>
@@ -27,7 +66,7 @@ export default class Login extends Component{
 
         <View style={styles.balanceBox}>
           <Text style={styles.balanceText}>CURRENT BALANCE</Text>
-          <Text style={styles.balanceValue}>$97814.87</Text>
+          <Text style={styles.balanceValue}>{this.state.sign}{this.state.balance}</Text>
         </View>
 
         <View style={styles.clickArea}>
@@ -61,11 +100,7 @@ export default class Login extends Component{
       </View>
 
       </ScrollView>
-    </ImageBackground>
-
-          
-      
-      
+    </ImageBackground> 
     );
   }
 }
