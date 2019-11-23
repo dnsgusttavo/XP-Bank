@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View,Text,Image,TextInput, TouchableOpacity,ImageBackground, ScrollView} from 'react-native';
+import {View,Text,Image,SafeAreaView, TouchableOpacity,ImageBackground, ScrollView} from 'react-native';
 import styles from '../AppStyles';
 import firebase from 'firebase';
 
@@ -23,7 +23,6 @@ export default class Home extends Component{
     this.state = {
       balance: 'Loading ...',
       sign: '',
-      nome: 'asdasdasd'
     }
 
     var firebaseConfig = {
@@ -44,27 +43,34 @@ export default class Home extends Component{
 
     var userId = '1';
 
-    
+    firebase.database().ref("users/" + userId + "/username").once('value', (snapshot) => {
+      let state = this.state;
+      state.username = snapshot.val();
+      this.setState(state);
+    });
+
     firebase.database().ref("users/" + userId + "/balance").on('value', (snapshot) => {
       this.state.sign = '$';
       let state = this.state;
       state.balance = snapshot.val();
       this.setState(state);
-      
     });
 
   
   }
   render(){
     return(
-      <ImageBackground source={require('../imgs/bg.jpg')} imageStyle= {{opacity: 0.07}} style={styles.bg} resizeMode={"repeat"}>
+      <ImageBackground source={require('../imgs/bg.png')} imageStyle= {{opacity: 0.5}} style={styles.bg} >
+      
       <ScrollView style={styles.ScrollView}> 
+
       <View style={styles.containerHome}>
         <View style={styles.logoBox}>
           <Image style={styles.logo} source={require('../imgs/xpbank.png')}/> 
         </View>
 
         <View style={styles.balanceBox}>
+          <Text style={styles.helloText}>Hello, {this.state.username}!</Text>
           <Text style={styles.balanceText}>CURRENT BALANCE</Text>
           <Text style={styles.balanceValue}>{this.state.sign}{this.state.balance}</Text>
         </View>
@@ -88,8 +94,6 @@ export default class Home extends Component{
           <UserAction text={"OPTIONS"} imgUri={require('../imgs/options.png')}></UserAction>
           <UserAction text={"HELP"} imgUri={require('../imgs/help.png')}></UserAction>
         </View>
-
-        
 
       </View>
       

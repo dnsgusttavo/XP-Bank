@@ -7,7 +7,7 @@ export default class Login extends Component{
     return(
       
 
-        <ImageBackground source={require('../imgs/bg.jpg')} imageStyle= {{opacity: 0.07}} style={styles.bg} resizeMode={"repeat"}>
+        <ImageBackground source={require('../imgs/bg.png')} imageStyle= {{opacity: 0.5}} style={styles.bg} >
             <View style={styles.container}>
               <View style={styles.logoBox}>
                 <Image style={styles.logo} source={require('../imgs/xpbank.png')}/> 

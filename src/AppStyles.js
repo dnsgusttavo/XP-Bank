@@ -1,6 +1,14 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+    helloText: {
+        fontSize: 20,
+        color: '#FFCB2B',
+        fontWeight: 'bold',
+        textShadowColor: '#000000',
+        textShadowRadius: 0.5,
+        
+    },
     container: {
         flex: 1,
         alignItems: 'center',
@@ -119,7 +127,7 @@ export default StyleSheet.create({
     logo: { 
         flex: 1,
         width: '90%',
-        resizeMode: 'center',
+        //resizeMode: 'center',
     },
     ftRegister: {
         width: '100%',
