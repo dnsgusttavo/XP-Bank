@@ -16,11 +16,9 @@ export default class Login extends Component{
               <TextInput style={styles.txtBox} placeholder="USERNAME" placeholderTextColor="#D2D2D2" maxLength={15}/>
               <TextInput style={styles.txtBox} placeholder="PASSWORD" secureTextEntry={true} placeholderTextColor="#D2D2D2" maxLength={15}/>
 
-              <View style={styles.btnBox}>
-                <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate('Home')}>
+              <TouchableOpacity style={styles.loginBox} onPress={() => this.props.navigation.navigate('Home')}>
                   <Text style={styles.btnText}>LOGIN</Text>
-                </TouchableOpacity>
-              </View>
+              </TouchableOpacity>
 
               <TouchableOpacity>
                 <Text style={styles.helpText}>Forgot Password? Reset here</Text>
