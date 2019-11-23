@@ -41,7 +41,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        width: '90%',
+        width: '100%',
     },
     clickBox: {
         alignItems: 'center',
@@ -51,7 +51,6 @@ export default StyleSheet.create({
         backgroundColor: '#01E478',
         height: 150,
         width: 150,
-        //resizeMode: 'center',
     },
     imgAction: {
         flex: 1,

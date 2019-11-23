@@ -24,7 +24,7 @@ export default class Login extends Component{
         <View style={styles.logoBox}>
           <Image style={styles.logo} source={require('../imgs/xpbank.png')}/> 
         </View>
-      
+
         <View style={styles.balanceBox}>
           <Text style={styles.balanceText}>CURRENT BALANCE</Text>
           <Text style={styles.balanceValue}>$97814.87</Text>
