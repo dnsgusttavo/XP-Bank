@@ -1,5 +1,5 @@
 # XPBANK
-Projeto de um aplicativo de banco feito com React Native
+Um dos primeiros aplicativos que desenvolvi com ReactNative. Aplicativo de banco feito para praticar a estilização de componentes no ReactNative
 
 # SCREENSHOTS
 <div>
